@@ -1,0 +1,149 @@
+body{
+    background-color: #f4f4f4;
+}
+#clr{
+    clear:both;
+}
+
+#main{
+    float: left;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+#inner-main{
+    float: left;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+
+#main div{
+    /* align: left; */
+    margin-left: 10%;
+    margin-top: -3%;
+    width: 15%;
+    background-color: #FFE699;
+    height: 5px;
+}
+
+#main h1{
+    font-size: 36px;
+    font-weight: bold;
+    font-family: calibri;
+    padding-left: 10%;
+    padding-top: 1%;
+    padding-bottom: 0;
+    
+}
+
+#main p{
+    font-size: 32px;
+    font-family: 'Gill Sans MT';
+    padding-left: 10%;
+    padding-top: 3%;
+    color: #7F7F7F;
+}
+
+#sidebar{
+    float:right;
+    width: 40%;
+    padding-right: 0%;
+    box-sizing: border-box;
+}
+
+#inner-sidebar{
+    float:right;
+    width: 40%;
+    padding-right: 0%;
+    box-sizing: border-box;
+}
+
+#sidebar ul{
+    list-style: none;
+    padding-left: 57%;
+    margin-top: 9%;
+}
+
+#sidebar li{
+    border: 1.3px #333 solid ;
+    width: 27%;   
+    text-align: center;
+    padding: 5px 20px;
+}
+
+#sidebar a{
+    font-size: 16px;
+    font-family: Arial;
+    text-decoration: none;
+    color: #333;
+}
+
+#sidebar img{
+    padding-top: 20px;
+    margin-left: -20px;
+    width: 115%;
+
+}
+
+#inner-main p{
+    font-size: 26px;
+    font-weight: bold;
+    font-family: calibri;
+    padding-left: 17%;
+    padding-top: 3%;
+    color: #000;
+}
+
+#inner-sidebar p{
+    font-size: 26px;
+    font-weight: bold;
+    font-family: serif;
+    padding-left: 8%;
+    padding-top: 6%;
+    color: #000;
+}
+
+#inner-main ul{
+    list-style: none;
+    padding-left: 17%;
+    margin-top: 7%;
+}
+
+#inner-main li{
+    border: 1.2px rgb(3, 216, 57) solid;
+    width: 27%; 
+    background-color: rgb(25, 180, 25);
+    font-weight: bold;
+    /* height: 20%;   */
+    text-align: center;
+    padding: 12px 7px;
+}
+#inner-main a{
+    font-size: 16px;
+    font-family: Arial;
+    text-decoration: none;
+    color: #fff;
+}
+
+#inner-sidebar ul{
+    list-style: none;
+    padding-left: 8%;
+    margin-top: 10%;
+}
+
+#inner-sidebar li{
+    border: 1.2px rgb(3, 216, 57) solid;
+    width: 27%; 
+    background-color: #fff;
+    font-weight: bold;
+    /* height: 20%;   */
+    text-align: center;
+    padding: 10px 10px;
+}
+#inner-sidebar a{
+    font-size: 16px;
+    font-family: Arial;
+    text-decoration: none;
+    color: rgb(25, 180, 25);
+}

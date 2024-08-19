@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/nav_sidebar.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+    <form method="post" id="companies_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="xOmXUMvzHtpeGf2V1KkY5VL1GLLh7TwC0Tcx5zZPwGMCULP1Lx1gUZl6Q3nr0Hip">
+        <div>
+            <fieldset class="module aligned ">
+                <div class="form-row field-companyName">
+                    <div>
+                        <label class="required" for="id_companyName">CompanyName:</label>
+                        <input type="text" name="companyName" class="vTextField" maxlength="50" required id="id_companyName">
+                    </div>
+                </div>
+            
+                <div class="form-row field-description">
+                    <div>
+                        <label class="required" for="id_description">Description:</label>
+                        <textarea name="description" cols="40" rows="10" class="vLargeTextField" required id="id_description">
+                        </textarea>
+                    </div>
+                </div>
+            
+                <div class="form-row field-branchesEligible">
+                    <div>
+                        <label class="required" for="id_branchesEligible">BranchesEligible:</label>
+                        <input type="text" name="branchesEligible" class="vTextField" maxlength="500" required id="id_branchesEligible">
+                    </div>
+                </div>
+            
+                <div class="form-row field-cgpa">
+                    <div>
+                        <label class="required" for="id_cgpa">Cgpa:</label>
+                        <input type="number" name="cgpa" step="0.01" required id="id_cgpa">
+                    </div>
+                </div>
+            
+                <div class="form-row field-stipendOffer">
+                    <div>
+                        <label class="required" for="id_stipendOffer">StipendOffer:</label>
+                        <input type="number" name="stipendOffer" class="vIntegerField" required id="id_stipendOffer">
+                    </div>
+                </div>
+            
+                <div class="form-row field-additionalBenefits">
+                    <div>
+                    <label class="required" for="id_additionalBenefits">AdditionalBenefits:</label>
+                    <textarea name="additionalBenefits" cols="40" rows="10" class="vLargeTextField" required id="id_additionalBenefits">
+                    </textarea>
+                    </div>
+                </div>
+            
+                <div class="form-row field-registerLink">
+                    <div>
+                        <label class="required" for="id_registerLink">RegisterLink:</label>
+                        <input type="url" name="registerLink" class="vURLField" maxlength="200" required id="id_registerLink">
+                    </div>
+                </div>
+            
+                <div class="form-row field-deadline">
+                    <div>
+                        <label class="required" for="id_deadline_0">Deadline:</label>
+                        <p class="datetime">
+                        <input type="datetime-local" name="deadline_0" class="vDateField" size="10" required id="id_deadline_0">
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="form-row field-publishDate">
+                    <div>
+                        <label class="required" for="id_publishDate_0">PublishDate:</label>
+                        <p class="datetime">
+                        <input type="datetime-local" name="publishDate_0" class="vDateField" size="10" required id="id_publishDate_0">
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="form-row field-girlsOnly">
+                    <div class="checkbox-row">
+                        <input type="checkbox" name="girlsOnly" id="id_girlsOnly"><label class="vCheckboxLabel" for="id_girlsOnly">GirlsOnly</label>
+                    </div>
+                </div>
+            
+            </fieldset>
+        
+        <div class="submit-row">
+        <input type="submit" value="Save" class="default" name="_save">
+        <!-- <input type="submit" value="Save and add another" name="_addanother">
+        <input type="submit" value="Save and continue editing" name="_continue"> -->
+        </div>
+            <!-- <script id="django-admin-form-add-constants"
+                src="/static/admin/js/change_form.js"
+                data-model-name="companies" async>
+            </script>
+        <script id="django-admin-prepopulated-fields-constants"
+                src="/static/admin/js/prepopulate_init.js"
+                data-prepopulated-fields="[]">
+        </script> -->
+        
+        </div>
+        </form>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href={% static 'form.css' %}>
+
+<!-- main content  -->
+<div class="container w-100 mt-4 ml-3">
+    <div class="mr-2">
+        <p style="font-size:22px; color:#666;">Add Notice</p><br>
+        <form method="POST" class="form-vertical">
+            {% csrf_token %}
+            <input type="radio" id="summerInternship" name="o" value="internship"checked>
+            <label for="summerInternship">Summer Internship</label>
+            <input type="radio" id="placement" name="o" value="placement" class="ml-5">
+            <label for="placement">Placement</label> <br> <hr>
+            <div class='row'>
+                <div class='col-sm-2'>
+                    <label class="form mt-1 ml-2">Company Name:</label>
+                </div>
+                <div class='col-sm-10'>
+                    <input type="text" name="companyName" class="box w-50 ml-4" maxlength="50">
+                </div>
+            </div> <hr>
+    
+            <div class='row'>
+                <div class='col-sm-2'>
+                    <label class="form mt-1 ml-2">Notice:</label>
+                </div>
+                <div class='col-sm-8'>
+                    <textarea name="notice" class="box w-100 ml-4 " cols="40" rows="10"></textarea>
+                </div>
+            </div> <hr>
+    
+            <div class='row'>
+                <div class='col-sm-2'>
+                    <label class="form mt-1 ml-2">Expiry Date:</label>
+                </div>
+                <div class='col-sm-10'>
+                    <input type="datetime-local" name="expiryDate" class="box ml-4">
+                </div>
+            </div> <hr>
+    
+            <div class='row'>
+                <div class='col-sm-2'>
+                    <label class="form mt-1 ml-2">PublishDate:</label>
+                </div>
+                <div class='col-sm-10'>
+                    <input type="datetime-local" name="publishDate" class="box ml-4">
+                </div>
+            </div> <hr> <br>      
+        
+            <div class="row" style="background-color: #F5F5F5; padding:10px 0px; border-radius:5px;
+             border: 1px #ddd solid; margin: 0px 0px">
+                <div class="col-lg-12">
+                    <!-- <input type="submit" value="SAVE" class="btn btn-info float-right" name="save"> -->
+                    <!-- <button type="submit" class="btn btn-info ">Save and add another</button> -->
+                    <button type="submit" class="btn btn-info float-right mr-1">SAVE</button>
+                </div>
+            </div>
+    
+        </form> <br><br><br>
+    </div>
+</div>
+
+
+{% endblock %}

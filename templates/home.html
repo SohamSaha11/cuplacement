@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+  <!-- main content  -->
+  <div class="row mx-auto mt-3">
+    {% if offer == "internship" %}
+    <h1 class="h4 w-100 mb-3">Summer Internship 
+      {%if user.isPlacementCell%}
+      <a href="home/company/add" class="badge badge-secondary" 
+      style="font-size: 14px; font-weight:normal; padding: 7px; float: right; margin-right: 20px">
+      ADD COMPANY <img src={%static 'svg-icons/plus.svg' %} style="margin-top: -3px;"></a>
+      {%endif%}
+      <hr></h1>
+
+    {%else%}
+    <h1 class="h4 w-100 mb-3">Placement 
+        {%if user.isPlacementCell%}
+        <a href="home/company/add" class="badge badge-secondary" 
+        style="font-size: 14px; font-weight:normal; padding: 7px; float: right; margin-right: 20px">
+        ADD COMPANY <img src={%static 'svg-icons/plus.svg' %} style="margin-top: -3px;"></a>
+        {%endif%}
+        <hr></h1>
+    {%endif%}
+
+
+
+    {% for company in companies %}
+    <div class="card bg-light mb-3 mx-auto" style="max-width: 20rem;">
+        <div class="card-header">{{company.companyName}}</div>
+        <div class="card-body">
+        {%if company.girlsOnly %}
+        <h5 class="card-title">** Girls Only **</h5>
+        {%endif%}
+        <p class="card-text">
+            <strong>CGPA Required:</strong> {{company.cgpa}} <br>
+            <strong>Branches Eligible:</strong> {{company.branchesEligible}} <br>
+            <strong>Stipend Offered:</strong> Rs. {{company.stipendOffer}} <br>
+            <strong>Deadline:</strong> {{company.deadline}} 
+            <!-- {{company.description|linebreaks}} <br><br> -->
+            <!-- view more -->
+        </p>
+        </div>
+        <div class="card-footer bg-transparent ">
+          <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="o" value="{{offer}}" hidden> 
+            <input type="number" name="compID" value="{{company.id}}" hidden>
+          <button type="submit" class="btn btn-link" style="margin: -11px">view more</button>
+          </form>
+      </div>
+    </div>
+    {% endfor %}
+        
+    <!-- {% for i in '0123456789'|make_list %}
+    <div class="card bg-light mb-3 mx-auto" style="max-width: 20rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+        <h5 class="card-title">Light card title</h5>
+        <p class="card-text">
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+        </p>
+        </div>
+    </div>
+    {% endfor %} -->
+  </div>
+
+{% endblock %}

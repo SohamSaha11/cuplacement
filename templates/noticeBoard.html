@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+  <!-- main content  -->
+  <div class=" mx-auto mt-3">
+    <h1 class="h4 w-100 mb-3">Notice Board 
+      {%if user.isPlacementCell%}
+      <a href="noticeBoard/add" class="badge badge-secondary" 
+      style="font-size: 14px; font-weight:normal; padding: 7px; float: right; margin-right: 20px">
+      ADD Notice <img src={%static 'svg-icons/plus.svg' %} style="margin-top: -3px;"></a>
+      {%endif%}
+      <hr></h1>
+
+
+
+    {% for notice in notices %}
+    <div class="card border-dark mb-3 ml-3" 
+    style="max-width: 80%; font-size: 13px; font-family: 'Segoe UI'; font-weight: 600">
+        <div class="card-header" style="font-size: 18px;">{{notice.compName}}</div>
+        <div class="card-body">
+          {{notice.notice|linebreaksbr|urlize}} 
+        </div>
+    </div>
+    {% endfor %}
+        
+    <!-- {% for i in '0123456789'|make_list %}
+    <div class="card border-dark mb-3" >
+        <div class="card-header">Header</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+    {% endfor %} -->
+  </div>
+
+
+{% endblock %}

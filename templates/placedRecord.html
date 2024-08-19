@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<div class="row mx-auto mt-3">
+    {% if offer == "internship" %}
+    <h1 class="h4 w-100 mb-3">Summer Internship 
+        {%if user.isPlacementCell%}
+        <a href="PlacedRecord/add" class="badge badge-secondary" 
+        style="font-size: 14px; font-weight:normal; padding: 7px; float: right; margin-right: 20px">
+        ADD STUDENT <img src={%static 'svg-icons/plus.svg' %} style="margin-top: -3px;"></a>
+        {%endif%}
+        <hr></h1>
+  
+      {%else%}
+      <h1 class="h4 w-100 mb-3">Placement 
+          {%if user.isPlacementCell%}
+          <a href="placedRecord/add" class="badge badge-secondary" 
+          style="font-size: 14px; font-weight:normal; padding: 7px; float: right; margin-right: 20px">
+          ADD STUDENT <img src={%static 'svg-icons/plus.svg' %} style="margin-top: -3px;"></a>
+          {%endif%}
+          <hr></h1>
+      {%endif%}
+
+    <div class="container ">
+        <div style="font-family: 'Segoe UI'; font-weight: 500">
+
+            <p style="font-size:22px; color:#666;">Placed Students Record</p><br>
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Roll Number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Offer Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for record in records%}
+                  <tr>
+                    <th scope="row">{{record.rollNumber}}</th>
+                    <td>{{record.name}}</td>
+                    <td>{{record.email}}</td>
+                    <td>{{record.companyName}}</td>
+                    <td>{{record.year}}</td>
+                    {% if record.accept%}
+                    <td>YES</td>
+                    {% else%}
+                    <td>NO</td>
+                    {%endif%}
+                  </tr>
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+              <br><br><br><br>
+        </div>
+    </div>
+
+{% endblock %}

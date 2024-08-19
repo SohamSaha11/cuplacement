@@ -1,0 +1,184 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>TPI</title>
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <!-- <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 ">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+            <small>
+                company name
+            </small>
+        </a>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+          </li>
+        </ul>
+    </nav> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" style="font-size:14px; margin-left:-7px;" href="#">
+            Thapar Placement Information</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse ml-2 " id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home/noticeBoard">Notice Board</a>
+            </li>
+            {% if user.isPlacementCell %}
+            <li>
+                <a class="nav-link" href="/home/placedRecord">Placed Record</a>
+            </li>
+            {%endif%}
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+          </form>
+          <ul class="navbar-nav px-3">
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" 
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Profile
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navDropDownLink">
+                  <a class="dropdown-item pl-2" href="#">
+                    <img src="{%static 'svg-icons/user.svg'%}" alt=""> Hello, {{user.name}}</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item pl-2" href="/logout">
+                    <img src="{%static 'svg-icons/log-out.svg'%}" alt=""> Sign out</a>
+              </div>
+            </li>
+            <!-- <li class="nav-item text-nowrap">
+              <a class="nav-link" href="#"></a>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
+
+    <!-- body -->
+    <div class="container-fluid">
+      <div class="row">
+          <!-- filters -->
+          <nav class="col-md-2 d-none d-md-block bg-light sidebar border">
+            <div class="sidebar-sticky mt-5">
+              <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias veniam omnis 
+                  nihil maxime illo ea et, blanditiis eveniet dolores illum dolor porro eum voluptatem 
+                  laborum culpa corporis id, dolorem magni!
+              </p> -->
+              <!-- <ul class="nav flex-column">
+                <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                Orders
+              </a>
+            </li>
+              </ul>
+  
+              <form action="" method="get">
+                <input type="checkbox" name="q" value="sample">
+              </form> -->
+              <form action="#" method="get">
+                {% if not offer %}
+                <input type="radio" id="summerInternship" name="o" value="internship" onchange='this.form.submit()' checked disabled>
+                <label for="summerInternship">Summer Internship</label> <br>
+                <input type="radio" id="placement" name="o" value="placement" onchange='this.form.submit()' disabled>
+                <label for="placement">Placement</label> <br> <hr>
+                {% elif offer == "internship" %}
+                <input type="radio" id="summerInternship" name="o" value="internship" onchange='this.form.submit()' checked>
+                <label for="summerInternship">Summer Internship</label> <br>
+                <input type="radio" id="placement" name="o" value="placement" onchange='this.form.submit()'>
+                <label for="placement">Placement</label> <br> <hr>
+                {% else %}
+                <input type="radio" id="summerInternship" name="o" value="internship" onchange='this.form.submit()'>
+                <label for="summerInternship">Summer Internship</label> <br>
+                <input type="radio" id="placement" name="o" value="placement" onchange='this.form.submit()' checked>
+                <label for="placement">Placement</label> <br> <hr>
+                {% endif %}
+
+                {% if not year %}
+                <label for="year">Year </label>
+                <select id="year" class="drpdwn" value=" " name="y" onchange='this.form.submit()'disabled>
+                    <option>2021 </option>
+                    <option>2020 </option>
+                    <option>2019 </option>
+                </select> <br> <hr>
+                <script type="text/javascript">
+                  document.getElementById('year').value = "{{ current_year }}";
+                </script>
+                {% else %}
+                <label for="year">Year </label>
+                <select id="year" class="drpdwn" value=" " name="y" onchange='this.form.submit()'>
+                    <option>2021 </option>
+                    <option>2020 </option>
+                    <option>2019 </option>
+                </select> <br> <hr>
+                <script type="text/javascript">
+                  document.getElementById('year').value = "{{year}}";
+                </script>
+                {% endif %}
+
+                {% if not girlsOnly %}
+                <label><input type="checkbox" value = True name="g" onchange='this.form.submit()' disabled> Girls Only</label> 
+                {%elif girlsOnly == "False" %}
+                <label><input type="checkbox" value="True" name="g" onchange='this.form.submit()'> Girls Only</label>
+                {%else%}
+                <label><input type="checkbox" value="True" name="g" onchange='this.form.submit()' checked> Girls Only</label>
+                {%endif%}
+                <!-- <input type="checkbox" name="q" value="sample" checked="checked" > -->
+              </form>
+  
+            </div>
+          </nav>
+  
+          <!-- main content  -->
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+              
+            {% block content %} {% endblock %}
+
+          </main>
+      </div> 
+  </div>
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+.form {
+    overflow: hidden;
+    /* padding: 10px; */
+    font-weight: bold;
+    font-size: 14px;
+    
+    /* font-family: "Calibri"; */
+    /* border-bottom: 1px solid var(--hairline-color); */
+}
+
+.box{
+    border-radius: 5px;
+    border: 1.2px solid #333;
+    padding: 4px 7px;
+    color: black;
+    font-size: 13px;
+    font-family: 'Segoe UI'; 
+    font-weight: 500;
+}
+
+/* .row{
+    margin-bottom: -15px;
+    margin-top: -5px;
+} */
+
+hr{
+    margin-bottom: 10px;
+    margin-top: 3px;
+    line-height: thin;
+}
+
+/* .button{
+    padding: 0px 15px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin-left: 15px;
+} */
